@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/18/2019 10:35:45" ReportInfo.Modified="12/18/2019 15:16:08" ReportInfo.CreatorVersion="2019.4.4.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Cell9_BeforePrint(object sender, EventArgs e)
+    {
+      if (Cell9.Text==&quot;&quot;)
+      {
+        Cell9.Text = &quot;H&quot;;
+      }
+      else if (Cell9.Text==&quot;1&quot;)
+      {
+        Cell9.Text = &quot; &quot;;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Styles>
+    <Style Name="cell1" Border.Lines="Right, Bottom" Border.RightLine.Style="Dot" Border.BottomLine.Style="Dot" Font="Arial, 10pt"/>
+    <Style Name="cell2" Border.Lines="All" Border.Style="Dot" Fill.Color="Gainsboro" Font="Arial, 10pt"/>
+    <Style Name="top" Border.Lines="Bottom" Border.BottomLine.Width="2" Font="Arial, 10pt"/>
+    <Style Name="bottom" Border.Lines="Right, Top" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Dot" Border.BottomLine.Width="2" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <JsonDataSourceConnection Name="Connection" ConnectionString="rijcmlqDHDzrNqoyVOZxtsXLAybENfBJyzdHw+vPrrvkfQAsgdBHWHF1KjW7oCv0Tp3qs+Tpv5e/O4ILcBjgVAv8nM3Q2RDdu42IgucQTk5vgoDqbUj/Xu9+Mu17FXRRbQFF2d8XYgIW+ij63TLijfzRvncxe2XeBpTvRfJw2PWT9QQAl3G4pqkHznKlo+nsRsqU3YhahEr2/ERQxARbTYB4E481MKI4IHk0daZSGcMZH43hfaIyHeYT+V9JVcoEGG6QHTZG9oqv9nC2Gea3PlMz1UYfXoS8NzRgOBEh4SzklG2L77jLdjhbHdzGReQASmEwOtx42Hrc8MDv84r9zov/YKUEMyjo3qDtppswFMf0X8/9jEDQMpcwAMcAEB/dD2llsQmZBbh+0AX0Lqc5GIxYBjA7Vu/ZbSE5R6OVTBuotcJYhYdvRj2nmXpc02p45Tv1b35nSoWpMyphmdcZ8UhivTfgaIFIrCPvaYeYh4SVMNvyNQahdJQHCIiBv6hB9z0R3rHsvPODcktq+pg6W1BeTivq+M9VqF6/LMUFrUVnuzQlMY2yrlVjRlcKZACUEOwmyLpuwchUmDJ0jr/uc98TSazVgYYW2GVuOgsc81zmXecx2poDsiiYT2F6GG45u5QnY2IyNUZg3mYWVtXjFbdFd90Ws1pHgOdKCi7KYTubmiCDPdsIYnuEJ62eedn4IsNvxQOipa3fGUat8E1w342Txxm6X1rA/Z7siVmpzKF8W+abdzbVXCFXMTi6P53JLHxKvSfrsMC1Wz1lg7HfEvM8cy1RkUFRKSqisfvrRhuD/n0e2+76h4/KrZueKq0sAJCopx5My4zFRpofcM29zePHdqTzeIevj1s1JgbApm4Ne/CBdnz7lUsfKFidpy+fFVKwM0ptYIvPlVd7AvgQn0Utb1QJm7h9Csguurf0ZFgK+Ms/gsiHRmpV93O8aYALfCju+Mz+niWQOpfdjUHrSMZ3DQWlnIPrFPtyvG37r6gVzxe4dB3T9PHCP4Zv84bnYGhRwInN/RLvSU3XTcPsGxw2kP87RFeleGnb3HUTpc6XRX4L9coKT8Vnqt95L5oqmJRntAcoEDJLM2Ru5WgeTgai1rGk6pty/ijMKx9wmAYH+LFdCbnraD6/bN3eRPDEIQe5IydHRT06e/20PT0cG95szbk/KQQn45zTRGZzJ1Guh+VLCFCWD36ef4e4og+J/rbeUukNvbuYmP6cHnjKnQunTecHNXQn22v9sXJcRTnM+AQZl0GykTfPrzU4sgK/AbIdndEPpMzqcpDPLRsXfv9FP/f2apn9r6wKicoTElyTw3iEvDKX/9j1yCCXVHd9EW8GAVdFD3eygBHWjFzTbhmNCYZPA==">
+      <JsonTableDataSource Name="JSON" DataType="FastReport.Data.JsonConnection.JsonParser.JsonArray" Enabled="true" TableName="JSON">
+        <Column Name="index" DataType="System.Int32"/>
+        <Column Name="item" DataType="FastReport.JsonBase">
+          <Column Name="Name" DataType="System.String"/>
+          <Column Name="Date" DataType="System.String"/>
+          <Column Name="grade" DataType="System.Double"/>
+        </Column>
+        <Column Name="array" DataType="FastReport.JsonBase"/>
+      </JsonTableDataSource>
+    </JsonDataSourceConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="66.15">
+      <TextObject Name="Text1" Width="1048.95" Height="66.15" Fill.Color="WhiteSmoke" Text="Class Register" VertAlign="Center" Font="Arial, 22pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="70.15" Width="1047.06" Height="153.18" Fill.Color="WhiteSmoke" EvenStyle="cell2">
+      <MatrixObject Name="Matrix1" Width="257.09" Height="153.18" EvenStyle="even" FixedRows="1" FixedColumns="1" AutoSize="false" DataSource="JSON">
+        <MatrixColumns>
+          <Header Expression="[JSON.item.Date]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[JSON.item.Name]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[JSON.item.grade]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="204.9"/>
+        <TableColumn Name="Column2" Width="52.19"/>
+        <TableRow Name="Row1" Height="92.01">
+          <TableCell Name="Cell1" Border.Lines="Bottom" Border.BottomLine.Width="2" Text="Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell2" Border.Lines="Bottom" Border.BottomLine.Width="2" Text="[Date]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="25.86">
+          <TableCell Name="Cell3" Border.Lines="Right, Bottom" Border.RightLine.Style="Dot" Border.BottomLine.Style="Dot" Text="[Name]" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell9" Border.Lines="Right, Bottom" Border.RightLine.Style="Dot" Border.BottomLine.Style="Dot" EvenStyle="even" BeforePrintEvent="Cell9_BeforePrint" Text="[grade]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="35.31">
+          <TableCell Name="Cell7" Border.Lines="Top" Border.Width="2" Text="Total" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell8" Border.Lines="Right, Top" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Dot" Border.BottomLine.Width="2" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt" Style="bottom"/>
+        </TableRow>
+      </MatrixObject>
+      <Sort>
+        <Sort Expression="[JSON.item.Date]"/>
+      </Sort>
+    </DataBand>
+  </ReportPage>
+</Report>
